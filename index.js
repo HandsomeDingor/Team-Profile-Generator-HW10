@@ -2,7 +2,6 @@ const inquirer = require('inquirer');
 const generatePage = require('./src/page-template');
 const fs = require('fs')
 
-// team profiles
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -41,6 +40,7 @@ function init() {
   })
 }
 
+// using switch to select addIntern, addEngineer or end command-line and create HTML file
 function addTeamMember() {
   inquirer.prompt([{
     type: "list",
@@ -57,12 +57,14 @@ function addTeamMember() {
         break;
       case "No More":
         generatePage(team);
+        console.log(team);
         writeToFile('./dist/index.html', generatePage(team));
         break;
     }
   })
 }
 
+// function add Engineer when select engineer in console
 function addEngineer() {
   inquirer.prompt([
 
@@ -95,6 +97,8 @@ function addEngineer() {
     addTeamMember();
   });
 }
+
+// function add Intern when select intern in console
 function addIntern() {
   inquirer.prompt([
 
@@ -130,7 +134,7 @@ function addIntern() {
 
 }
 
-
+// save html function use it on line 60
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, err =>
       err ? console.log(err) : console.log('Success!'));
