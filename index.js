@@ -1,31 +1,139 @@
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template');
+const fs = require('fs')
 
-const questions = [
-    {
-        type: "input",
-        message: "What is your name?",
-        name: "name",
-        validate: nameInput => {
-            if (nameInput) {
-                return true;
-            } else {
-                console.log("You need to enter your name!");
-                return false;
-            }
-        }
-    },
-]
+// team profiles
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
+let team = {
+  manager: null,
+  engineers: [],
+  interns: [],
+}
 
-// TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions)
-        .then(function (data) {
-            
-            // writeToFile('./dist/README.MD', generateMarkdown(data))
-        });
-};
+  inquirer.prompt([
+    {
+      type: "input",
+      name: "mName",
+      message: "What is the manager's name?"
+    },
+    {
+      type: "input",
+      name: "mId",
+      message: "What is the manager's employee ID number?"
+    },
+    {
+      type: "input",
+      name: "mEmail",
+      message: "What is the manager's email address?"
+    },
+    {
+      type: "input",
+      name: "mOfficeNumber",
+      message: "What is the manager's office number?"
+    }
+  ]).then(answer => {
+    team.manager = new Manager(answer.mName, answer.mId, answer.mEmail, answer.mOfficeNumber);
+    addTeamMember();
+  })
+}
 
-// Function call to initialize app
+function addTeamMember() {
+  inquirer.prompt([{
+    type: "list",
+    message: "which role of employee would you likt to add?",
+    name: "roleSelect",
+    choices: ["Engineer", "Intern", "No More"]
+  }]).then(function (userInput) {
+    switch (userInput.roleSelect) {
+      case "Engineer":
+        addEngineer();
+        break;
+      case "Intern":
+        addIntern();
+        break;
+      case "No More":
+        generatePage(team);
+        writeToFile('./dist/index.html', generatePage(team));
+        break;
+    }
+  })
+}
+
+function addEngineer() {
+  inquirer.prompt([
+
+    {
+      type: "input",
+      name: "eName",
+      message: "What is the engineer's name?"
+    },
+
+    {
+      type: "input",
+      name: "eId",
+      message: "What is the engineer's employee ID number?"
+    },
+
+    {
+      type: "input",
+      name: "eEmail",
+      message: "What is the engineer's email address?"
+    },
+
+    {
+      type: "input",
+      name: "eGithubName",
+      message: "What is the engineer's GitHub username?"
+    }
+  ]).then(answers => {
+    const engineer = new Engineer(answers.eName, answers.eId, answers.eEmail, answers.eGithubName);
+    team.engineers.push(engineer);
+    addTeamMember();
+  });
+}
+function addIntern() {
+  inquirer.prompt([
+
+    {
+      type: "input",
+      name: "iName",
+      message: "What is the intern's name?"
+    },
+
+    {
+      type: "input",
+      name: "iId",
+      message: "What is the intern's employee ID number?"
+    },
+
+    {
+      type: "input",
+      name: "iEmail",
+      message: "What is the intern's email address?"
+    },
+
+    {
+      type: "input",
+      name: "iSchool",
+      message: "What school does the intern attend?"
+    }
+
+  ]).then(answers => {
+    const intern = new Intern(answers.iName, answers.iId, answers.iEmail, answers.iSchool);
+    team.interns.push(intern);
+    addTeamMember();
+  });
+
+}
+
+
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, err =>
+      err ? console.log(err) : console.log('Success!'));
+}
+
 init();
