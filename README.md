@@ -81,9 +81,13 @@ THEN I exit the application, and the HTML is generated
 
 ## [Demo-Vide](#table-of-contents)
 ## The following video demonstrates the application functionality:
+ https://www.youtube.com/watch?v=IoGoEVMosbs
 
 ## [Demo-Output](#table-of-contents)
 ## The demo README on dist file will look like the below:
+<img width="1305" alt="Screen Shot 2022-02-27 at 9 45 59 PM" src="https://user-images.githubusercontent.com/94802639/155916233-194e65ef-ef50-4886-be15-5f5ed684c579.png">
+<img width="523" alt="Screen Shot 2022-02-27 at 9 46 43 PM" src="https://user-images.githubusercontent.com/94802639/155916244-6b4116ea-7fe0-412e-b0d3-f651a341759c.png">
+<img width="519" alt="Screen Shot 2022-02-27 at 9 46 58 PM" src="https://user-images.githubusercontent.com/94802639/155916251-6533f2e7-7a11-4626-9fa4-f43dfcb87349.png">
 
 
 
