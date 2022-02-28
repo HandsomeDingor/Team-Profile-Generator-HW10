@@ -2,7 +2,48 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## User Story
+## Table of Contents
+
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [License](#license)
+* [Questions](#questions)
+* [User-Story](#user-story)
+* [Acceptance-Criteria](#acceptance-criteria)
+* [Built-with](#built-with)
+* [Demo-Video](#demo-video)
+* [Demo-output](#demo-output)
+
+## [Description](#table-of-contents)
+Team-Profile-Generator
+
+## [Installation](#table-of-contents)
+vs code and node.js
+
+## [Usage](#table-of-contents)
+N/A
+
+## [Contributing](#table-of-contents)
+N/A
+
+## [Tests](#table-of-contents)
+N/A
+
+## [License](#table-of-contents)
+The application is covered under the MIT License.
+
+## [Questions](#table-of-contents)
+Please contact me using the following options:
+
+[GitHub](https://github.com/HandsomeDingor)
+
+[Email: Gmail](mailto:jay807541931@gmail.com)
+
+
+## [User-Story](#table-of-contents)
 
 ```
 AS A manager
@@ -10,7 +51,7 @@ I WANT to generate a webpage that displays my team's basic info
 SO THAT I have quick access to their emails and GitHub profiles
 ```
 
-## Acceptance Criteria
+## [Acceptance-Criteria](#table-of-contents)
 
 ```
 GIVEN a command-line application that accepts user input
@@ -32,13 +73,16 @@ WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 
 ```
-## Built with
+## [Built-With](#table-of-contents)
 * npm
 * JavaScript
+* node.js
+* Jest
 
+## [Demo-Vide](#table-of-contents)
 ## The following video demonstrates the application functionality:
 
-
+## [Demo-Output](#table-of-contents)
 ## The demo README on dist file will look like the below:
 
 
