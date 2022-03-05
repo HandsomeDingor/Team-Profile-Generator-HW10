@@ -81,7 +81,7 @@ THEN I exit the application, and the HTML is generated
 
 ## [Demo-Vide](#table-of-contents)
 ## The following video demonstrates the application functionality:
- https://www.youtube.com/watch?v=IoGoEVMosbs
+https://www.youtube.com/watch?v=ZtJ60PaJnD8&t=1s
 
 ## [Demo-Output](#table-of-contents)
 ## The demo README on dist file will look like the below:
